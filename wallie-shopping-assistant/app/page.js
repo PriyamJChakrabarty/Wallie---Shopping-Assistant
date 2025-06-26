@@ -1,14 +1,19 @@
-import { Button } from "@/components/ui/button";
-import { ClerkProvider } from "@clerk/nextjs";
-import Image from "next/image";
+"use client";
+import { SignedIn, SignedOut, RedirectToSignIn } from "@clerk/nextjs";
+import { redirect } from "next/navigation";
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <ClerkProvider>
-      <div>
-        <h2>I am back </h2>
-        <Button>Click me</Button>
-      </div>
-    </ClerkProvider>
+    <>
+      <SignedIn>
+        {/* 👇 if user is signed in, show dashboard directly */}
+        {redirect("/dashboard")}
+      </SignedIn>
+
+      <SignedOut>
+        {/* 👇 Clerk handles showing sign-in page */}
+        <RedirectToSignIn />
+      </SignedOut>
+    </>
   );
 }
