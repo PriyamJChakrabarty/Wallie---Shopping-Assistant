@@ -1,0 +1,7 @@
+# Voice Assistant Requirements
+speech-recognition==3.10.0
+PyAudio==0.2.11
+gtts==2.5.1
+pygame==2.5.2
+requests==2.31.0
+google-generativeai==0.7.2

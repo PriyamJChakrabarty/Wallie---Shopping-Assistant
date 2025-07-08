@@ -1,8 +1,9 @@
+require("dotenv").config({ path: ".env.local" });
 const { db } = require("../utils/db");
 const { Product } = require("../utils/schema");
 
 async function seed() {
-  const now = new Date().toISOString();
+  const now = new Date();
   const products = [
     {
       id: 1,
