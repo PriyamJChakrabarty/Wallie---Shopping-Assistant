@@ -3,6 +3,7 @@ from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
 from test import ShoppingAgent  # Import the class from test.py
 
+
 app = FastAPI()
 agent = ShoppingAgent()
 

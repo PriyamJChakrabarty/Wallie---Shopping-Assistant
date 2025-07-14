@@ -140,7 +140,7 @@ class ConversationMemory:
     def add_agent_message(self, message: str) -> None:
         self.messages.append({"role": "agent", "content": message})
 
-    def get_conversation_history(self, max_messages: int = 3) -> str:
+    def get_conversation_history(self, max_messages: int = 6) -> str:
         recent_messages = self.messages[-max_messages:] if len(self.messages) > max_messages else self.messages
         history = ""
         for msg in recent_messages:
@@ -235,7 +235,6 @@ class ShoppingAgent:
 
     def generate_response(self, prompt: str) -> str:
         logger.info("Generating response...")
-        logger.info(f"Prompt tokens approx: {len(prompt.split())}")
         try:
             response = self.model.generate_content(prompt)
             result = response.text if hasattr(response, 'text') else str(response)
@@ -329,23 +328,3 @@ class ShoppingAgent:
             logger.info("Conversation ending - checkout phrase detected")
 
         return result
-
-
-# if __name__ == "__main__":
-#     logging.basicConfig(level=logging.INFO)
-
-#     # Initialize the agent
-#     agent = ShoppingAgent()
-
-#     print("Running greeting phase...")
-#     response = agent.run_greeting_chain()
-#     print("Assistant:", response)
-
-#     while True:
-#         user_input = input("\nYou: ").strip()
-#         if user_input.lower() in ["exit", "quit"]:
-#             print("Exiting conversation.")
-#             break
-
-#         response = agent.run_conversation_chain(user_input)
-#         print("Assistant:", response)

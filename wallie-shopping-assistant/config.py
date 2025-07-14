@@ -8,7 +8,8 @@ BASE_URL = "http://localhost:3000"
 DEFAULT_USER_EMAIL = "rndas2004@gmail.com"
 
 # Gemini API Configuration
-GEMINI_API_KEY = "AIzaSyDwWnr-botBGPLmNRHmHXica8xB_TkQYsw"
+# GEMINI_API_KEY = "AIzaSyDwWnr-botBGPLmNRHmHXica8xB_TkQYsw"
+GEMINI_API_KEY = "AIzaSyC8BIXZ2_7drbh7n1aScgJ5tJKNYDGdAhM"
 
 # Speech Configuration
 SPEECH_LANGUAGE = "en-IN"
